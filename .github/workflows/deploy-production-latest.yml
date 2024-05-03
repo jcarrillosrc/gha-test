@@ -11,8 +11,6 @@ jobs:
     name: Deploy to production "latest" version
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: latest
       - name: List directory
         run: ls -la
       - name: Show version
