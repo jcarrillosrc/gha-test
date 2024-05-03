@@ -8,17 +8,6 @@ name: Deploy
         required: true
         type: string
 
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: "Environment to deploy"
-        options:
-          - development
-          - staging
-          - production
-        required: true
-        type: choice
-
 jobs:
   deploy-staging:
     if: inputs.environment == 'staging'
