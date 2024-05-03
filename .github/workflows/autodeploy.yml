@@ -22,6 +22,4 @@ jobs:
 
   deploy-staging:
     needs: ["build"]
-    uses: ./.github/workflows/deploy.yml
-    with:
-      environment: "staging"
+    uses: ./.github/workflows/deploy-staging.yml

@@ -1,0 +1,23 @@
+name: Deploy to production
+"on":
+  # Allows to call this job from another pipeline
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    environment: production
+    runs-on: ubuntu-latest
+    name: Deploy app
+    steps:
+      - name: Deploy
+        run: echo 'deploying to production'
+
+  tag-release:
+    needs: ["deploy"]
+    environment: production
+    runs-on: ubuntu-latest
+    name: Create release tag
+    steps:
+      - name: create tag
+        run: echo 'git add tag.... latest'
