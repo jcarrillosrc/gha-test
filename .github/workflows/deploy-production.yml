@@ -12,3 +12,11 @@ jobs:
     steps:
       - name: Deploy
         run: echo 'deploying to production'
+
+  tag-release:
+    environment: production
+    runs-on: ubuntu-latest
+    name: Create release tag
+    steps:
+      - name: create tag
+        run: echo 'git add tag.... latest'
