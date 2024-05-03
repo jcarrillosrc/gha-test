@@ -1,4 +1,4 @@
-name: Deploy to production
+name: Deploy to production:latest
 "on":
   # Allows to call this job from another pipeline
   workflow_call:
