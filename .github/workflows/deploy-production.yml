@@ -14,6 +14,7 @@ jobs:
         run: echo 'deploying to production'
 
   tag-release:
+    needs: ["deploy"]
     environment: production
     runs-on: ubuntu-latest
     name: Create release tag
