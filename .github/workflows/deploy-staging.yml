@@ -2,6 +2,7 @@ name: Deploy to staging
 "on":
   # Allows to call this job from another pipeline
   workflow_call:
+  workflow_dispatch:
 
 jobs:
   deploy:
