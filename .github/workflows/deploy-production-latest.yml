@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: refs/tags/latest
+          ref: latest
       - name: List directory
         run: ls -la
       - name: Show version
