@@ -8,16 +8,10 @@ jobs:
   deploy:
     environment: production
     runs-on: ubuntu-latest
-    name: Deploy app
+    name: Deploy to production "latest" version
     steps:
-      - name: Deploy
-        run: echo 'deploying to production'
-
-  tag-release:
-    needs: ["deploy"]
-    environment: production
-    runs-on: ubuntu-latest
-    name: Create release tag
-    steps:
-      - name: create tag
-        run: echo 'git add tag.... latest'
+      - uses: actions/checkout@v4
+        with:
+          ref: refs/tags/latest
+      - name: Show version
+        run: cat version.txt
