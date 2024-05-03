@@ -1,11 +1,10 @@
-name: PR
+name: Deploy
 "on":
   # Allows to call this job from another pipeline
   workflow_call:
     inputs:
       environment:
         description: "Environment to deploy"
-        default: "development"
         required: true
         type: string
 
@@ -15,12 +14,13 @@ name: PR
         description: "Environment to deploy"
         options:
           - development
+          - staging
           - production
         required: true
         type: choice
 
 jobs:
-  build:
+  deploy:
     timeout-minutes: 15
     environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
@@ -28,4 +28,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: echo
-        run: echo 'hi gha-test - env -> ${{ inputs.environment }}'
+        run: echo 'deploying to ${{ inputs.environment }}'
