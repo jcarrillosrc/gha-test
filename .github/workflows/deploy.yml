@@ -20,12 +20,9 @@ name: Deploy
         type: choice
 
 jobs:
-  deploy:
-    timeout-minutes: 15
-    environment: ${{ inputs.environment }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: echo
-        run: echo 'deploying to ${{ inputs.environment }}'
+  deploy-staging:
+    if: inputs.environment == 'staging'
+    uses: ./.github/workflows/deploy-staging.yml
+  deploy-prod:
+    if: inputs.environment == 'production'
+    uses: ./.github/workflows/deploy-production.yml
