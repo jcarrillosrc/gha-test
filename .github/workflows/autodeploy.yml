@@ -6,7 +6,7 @@ name: Autodeployment
       - "master"
 
 concurrency:
-  group: ${{ github.ref }}
+  group: ${{ github.ref }}::autodeploy
   cancel-in-progress: true
 
 jobs:

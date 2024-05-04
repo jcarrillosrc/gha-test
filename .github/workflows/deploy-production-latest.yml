@@ -5,7 +5,7 @@ name: Deploy to production:latest
     - cron: "0 */3 * * *"
 
 concurrency:
-  group: ${{ github.ref }}
+  group: ${{ github.ref }}::deploy-production::latest
   cancel-in-progress: true
 
 jobs:
