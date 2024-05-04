@@ -10,9 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy to production "latest" version
     steps:
-      - uses: actions/checkout@v4
+      - id: get_latest_release
+        name: Get the latest release name
+        uses: pozetroninc/github-action-get-latest-release@master
         with:
-          ref: latest
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+      #- uses: actions/checkout@v4
+      #  with:
+      #    ref: latest
+      - name: Release information
+        run: "echo 'Release version: ${{steps.get_latest_release.outputs.release}}\n- Release Id: ${{steps.get_latest_release.outputs.id}}'\n- Release description: ${{steps.get_latest_release.outputs.description}}'"
       - name: List directory
         run: ls -la
       - name: Show version
