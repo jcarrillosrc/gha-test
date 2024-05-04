@@ -1,9 +1,5 @@
 name: Autodeployment pipeline
-"on":
-  push:
-    branches:
-      - "main"
-      - "master"
+"on": pull_request
 
 concurrency:
   group: ${{ github.ref }}
@@ -13,13 +9,9 @@ jobs:
   build:
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    environment: "staging"
+    environment: "development"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build
         run: echo 'Building...'
-
-  deploy-staging:
-    needs: ["build"]
-    uses: ./.github/workflows/deploy-staging.yml
