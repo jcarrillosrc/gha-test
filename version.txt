@@ -1,1 +1,1 @@
-version xxx
+version foo-bar
