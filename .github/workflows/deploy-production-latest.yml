@@ -16,11 +16,11 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
-      #- uses: actions/checkout@v4
-      #  with:
-      #    ref: latest
       - name: Release information
-        run: "echo \"Release version: ${{steps.get_latest_release.outputs.release}}\n- Release Id: ${{steps.get_latest_release.outputs.id}}'\n- Release description: ${{steps.get_latest_release.outputs.description}}\""
+        run: "echo \"Release\n- Version: ${{steps.get_latest_release.outputs.release}}\n- Id: ${{steps.get_latest_release.outputs.id}}'\n- Description: ${{steps.get_latest_release.outputs.description}}\""
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{steps.get_latest_release.outputs.release}}
       - name: List directory
         run: ls -la
       - name: Show version
