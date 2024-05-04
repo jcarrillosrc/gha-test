@@ -4,7 +4,6 @@ name: Autodeployment pipeline
     branches:
       - "main"
 
-# Runs steps sequentially
 concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
