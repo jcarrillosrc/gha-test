@@ -1,4 +1,4 @@
-name: Autodeployment pipeline
+name: Autodeployment
 "on":
   push:
     branches:
