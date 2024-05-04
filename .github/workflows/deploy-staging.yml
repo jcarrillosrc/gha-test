@@ -4,7 +4,7 @@ name: Deploy to staging
   workflow_dispatch:
 
 concurrency:
-  group: ${{ github.ref }}
+  group: ${{ github.ref }}::deploy-staging
   cancel-in-progress: true
 
 jobs:
